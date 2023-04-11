@@ -101,6 +101,6 @@ resource "aws_security_group" "nishant-webserver-security-group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "Web Server Security Group"
+    Name = "Nishant Web Server Security Group"
   }
 }
