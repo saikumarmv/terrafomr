@@ -12,7 +12,7 @@ pipeline {
         }
             stage("terraform init") {
             steps {
-               def tfHome = tool name: 'terraform', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
+                def tfHome = tool name: 'terraform', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
                 env.Path = "${tfHome};${env.Path}"
                 bat 'terraform init'
                 bat 'terraform version'
