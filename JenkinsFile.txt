@@ -13,12 +13,13 @@ pipeline {
             stage("terraform init") {
             steps {
                 powershell ('terraform init')
+                powershell ('terraform version')
             }
         }
         stage("terraform Action") {
             steps {
                 echo "Terraform action is --> ${action}"
-                powershell ('terraform ${action} --auto-approve')
+                powershell ('terraform plan --auto-approve')
             }
         }
     }
