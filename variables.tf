@@ -8,13 +8,13 @@ variable "ami_id" {
 }
 
 variable "security_group" {
-    default = "nishant-ssh-security-group"
+    default = "sai-ssh-security-group"
 }
 variable "instance_type" {
     default = "t2.micro"
 }
 variable "key_name" {
-    default = "nishant-keypair-terraform"
+    default = "sai_keypair"
 }
 
 
