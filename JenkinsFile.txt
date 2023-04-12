@@ -7,6 +7,5 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions :[], userRemoteConfig: [[url: "https://github.com/saikumarmv/terrafomr/tree/master"]]])
             }
         }
-        }
     }
 }
