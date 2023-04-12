@@ -12,8 +12,8 @@ pipeline {
         }
             stage("terraform init") {
             steps {
-                bat '/usr/local/bin/terraform init'
-                bat '/usr/local/bin/terraform version'
+                bat 'terraform init'
+                bat 'terraform version'
             }
         }
         stage("terraform Action") {
