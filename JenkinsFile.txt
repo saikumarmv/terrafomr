@@ -1,10 +1,23 @@
 pipeline {
     agent any
-
+    tools {
+     terraform 'Terraform'
+    }
     stages {
        stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions :[], userRemoteConfig: [[url: "https://github.com/saikumarmv/terrafomr/tree/master"]]])
+            }
+        }
+            stage("terraform init") {
+            steps {
+                sh ('terraform init')
+            }
+        }
+        stage("terraform Action") {
+            steps {
+                echo "Terraform action is --> ${action}"
+                sh ('terraform ${action} --auto-approve')
             }
         }
     }
