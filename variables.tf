@@ -30,3 +30,7 @@ variable "Private_Subnet_1" {
   type        = string
   description = "Private Subnet 1"
 }
+variable "access_key" {
+  type        = string
+  description = "access_key"
+}
