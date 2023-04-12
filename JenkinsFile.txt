@@ -2,16 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage("terraform init") {
+       stage('Checkout') {
             steps {
-                sh ('terraform init')
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions :[], userRemoteConfig: [[url: "https://github.com/saikumarmv/terrafomr/tree/master"]]])
             }
         }
-        stage("terraform Action") {
-            steps {
-                echo "Terraform action is --> ${action}"
-                sh ('terraform ${action} --auto')
-            }
         }
     }
 }
