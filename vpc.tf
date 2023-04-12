@@ -70,7 +70,7 @@ resource "aws_security_group" "sai-ssh-security-group" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    
+
   }
   egress {
     from_port   = 0

@@ -1,32 +1,32 @@
 variable "vpc-cidr" {
-    default = "10.0.0.0/16"
-    type = string
+  default = "10.0.0.0/16"
+  type    = string
 }
 
 variable "ami_id" {
-    default = "ami-007855ac798b5175e"
+  default = "ami-007855ac798b5175e"
 }
 
 variable "security_group" {
-    default = "sai-ssh-security-group"
+  default = "sai-ssh-security-group"
 }
 variable "instance_type" {
-    default = "t2.micro"
+  default = "t2.micro"
 }
 variable "key_name" {
-    default = "sai_keypair"
+  default = "sai_keypair"
 }
 
 
 
 variable "Public_Subnet_1" {
-    default = "10.0.0.0/24"
-    type = string
-    description = "Public subnet 1"
+  default     = "10.0.0.0/24"
+  type        = string
+  description = "Public subnet 1"
 }
 
 variable "Private_Subnet_1" {
-    default = "10.0.2.0/24" 
-    type = string
-    description = "Private Subnet 1"
+  default     = "10.0.2.0/24"
+  type        = string
+  description = "Private Subnet 1"
 }
