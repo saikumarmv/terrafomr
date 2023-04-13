@@ -1,29 +1,29 @@
 pipeline {
     agent any
     tools {
-     terraform 'terraform'
+        terraform 'terraform'
     }
-    
+
     stages {
-       stage('Checkout') {
+        stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions :[], userRemoteConfig: [[url: "https://github.com/saikumarmv/terrafomr/tree/master"]]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions :[], userRemoteConfig: [[url: 'https://github.com/saikumarmv/terrafomr/tree/master']]])
             }
         }
-            stage("terraform init") {
+            stage('terraform init') {
             steps {
                 bat 'terraform init'
                 bat 'terraform version'
             }
-        }
-        stage("terraform Action") {
+            }
+        stage('terraform Action') {
             steps {
-environment {
-    AWS_ACCESS_KEY_ID     = credentials('access_key')
-    AWS_SECRET_ACCESS_KEY = credentials('secret_key')
-}
-                 echo "Terraform action is --> ${action}"
-                 bat "terraform ${action} --auto-approve"
+                environment {
+                    AWS_ACCESS_KEY_ID     = credentials('access_key')
+                    AWS_SECRET_ACCESS_KEY = credentials('secret_key')
+                }
+                echo "Terraform action is --> ${action}"
+                bat "terraform ${action} --auto-approve"
             }
         }
     }
