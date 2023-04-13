@@ -18,7 +18,7 @@ pipeline {
             }
         stage('terraform Action') {
             steps {
-            withCredentials([string(credentialsId: '', variable: 'access_key'), string(credentialsId: '', variable: 'secret_key')]) {
+            withCredentials([string(credentialsId: 'access_key', variable: 'access_key'), string(credentialsId: 'secret_key', variable: 'secret_key')]) {
                 echo "Terraform action is --> ${action}"
                 export TF_VAR_access_key='${access_key}'
                 export TF_VAR_secret_key='${secret_key}'
