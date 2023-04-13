@@ -18,8 +18,10 @@ pipeline {
         }
         stage("terraform Action") {
             steps {
-                echo "Terraform action is --> ${action}"
-                bat "terraform ${action} --auto-approve"
+            withCredentials([string(credentialsId: '', variable: 'access_key'), string(credentialsId: '', variable: 'secret_key')]) {
+                 echo "Terraform action is --> ${action}"
+                bat "terraform ${action} -var="access_key=${acess__key}" -var="secret_key=${secret_key}" --auto-approve"
+}
             }
         }
     }
